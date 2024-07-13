@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35017.193
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuruchiJewellersManagement.Domain", "SuruchiJewellersManagement.Domain\SuruchiJewellersManagement.Domain.csproj", "{DD011189-39FD-4C1C-9F74-D5E685A60195}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B14F70C-B227-48D4-A9F6-C57FD1BD373F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuruchiJewellersManagement.Database", "SuruchiJewellersManagement.Database\SuruchiJewellersManagement.Database.csproj", "{3D905D24-DF80-4895-A7FA-A8DFE60B116C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuruchiJewellersManagement.Api", "SuruchiJewellersManagement.Api\SuruchiJewellersManagement.Api.csproj", "{9658D3D7-27CD-4838-BF10-83E185B79EF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuruchiJewellersManagement.Repository", "SuruchiJewellersManagement.Repository\SuruchiJewellersManagement.Repository.csproj", "{ECDA8AF9-4F1C-475B-A0BB-8B14877ECFFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuruchiJewellersManagement.Manager", "SuruchiJewellersManagement.Manager\SuruchiJewellersManagement.Manager.csproj", "{01644574-BE88-47A4-A236-C2E5EE2918B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD011189-39FD-4C1C-9F74-D5E685A60195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD011189-39FD-4C1C-9F74-D5E685A60195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD011189-39FD-4C1C-9F74-D5E685A60195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD011189-39FD-4C1C-9F74-D5E685A60195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D905D24-DF80-4895-A7FA-A8DFE60B116C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D905D24-DF80-4895-A7FA-A8DFE60B116C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D905D24-DF80-4895-A7FA-A8DFE60B116C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D905D24-DF80-4895-A7FA-A8DFE60B116C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9658D3D7-27CD-4838-BF10-83E185B79EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9658D3D7-27CD-4838-BF10-83E185B79EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9658D3D7-27CD-4838-BF10-83E185B79EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9658D3D7-27CD-4838-BF10-83E185B79EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDA8AF9-4F1C-475B-A0BB-8B14877ECFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDA8AF9-4F1C-475B-A0BB-8B14877ECFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDA8AF9-4F1C-475B-A0BB-8B14877ECFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDA8AF9-4F1C-475B-A0BB-8B14877ECFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01644574-BE88-47A4-A236-C2E5EE2918B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01644574-BE88-47A4-A236-C2E5EE2918B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01644574-BE88-47A4-A236-C2E5EE2918B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01644574-BE88-47A4-A236-C2E5EE2918B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30BAF70A-61C3-4847-B7D1-5A4917E8621C}
+	EndGlobalSection
+EndGlobal

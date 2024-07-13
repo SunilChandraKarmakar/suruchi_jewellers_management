@@ -1,0 +1,6 @@
+@SuruchiJewellersManagement.Api_HostAddress = http://localhost:5093
+
+GET {{SuruchiJewellersManagement.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
