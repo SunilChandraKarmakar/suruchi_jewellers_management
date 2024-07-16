@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9658D3D7-27CD-4838-BF10-83E185B79EF1}|SuruchiJewellersManagement.Api\\SuruchiJewellersManagement.Api.csproj|d:\\suruchi_jewellers_management\\suruchi jewellers management backend\\suruchijewellersmanagement\\suruchijewellersmanagement.api\\automapper\\automappersetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9658D3D7-27CD-4838-BF10-83E185B79EF1}|SuruchiJewellersManagement.Api\\SuruchiJewellersManagement.Api.csproj|solutionrelative:suruchijewellersmanagement.api\\automapper\\automappersetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9658D3D7-27CD-4838-BF10-83E185B79EF1}|SuruchiJewellersManagement.Api\\SuruchiJewellersManagement.Api.csproj|d:\\suruchi_jewellers_management\\suruchi jewellers management backend\\suruchijewellersmanagement\\suruchijewellersmanagement.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9658D3D7-27CD-4838-BF10-83E185B79EF1}|SuruchiJewellersManagement.Api\\SuruchiJewellersManagement.Api.csproj|solutionrelative:suruchijewellersmanagement.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD011189-39FD-4C1C-9F74-D5E685A60195}|SuruchiJewellersManagement.Domain\\SuruchiJewellersManagement.Domain.csproj|d:\\suruchi_jewellers_management\\suruchi jewellers management backend\\suruchijewellersmanagement\\suruchijewellersmanagement.domain\\viewmodels\\response\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD011189-39FD-4C1C-9F74-D5E685A60195}|SuruchiJewellersManagement.Domain\\SuruchiJewellersManagement.Domain.csproj|solutionrelative:suruchijewellersmanagement.domain\\viewmodels\\response\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -191,40 +183,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AutoMapperSetting.cs",
-              "DocumentMoniker": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\AutoMapper\\AutoMapperSetting.cs",
-              "RelativeDocumentMoniker": "SuruchiJewellersManagement.Api\\AutoMapper\\AutoMapperSetting.cs",
-              "ToolTip": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\AutoMapper\\AutoMapperSetting.cs*",
-              "RelativeToolTip": "SuruchiJewellersManagement.Api\\AutoMapper\\AutoMapperSetting.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T19:11:27.108Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ResponseModel.cs",
-              "DocumentMoniker": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Domain\\ViewModels\\Response\\ResponseModel.cs",
-              "RelativeDocumentMoniker": "SuruchiJewellersManagement.Domain\\ViewModels\\Response\\ResponseModel.cs",
-              "ToolTip": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Domain\\ViewModels\\Response\\ResponseModel.cs",
-              "RelativeToolTip": "SuruchiJewellersManagement.Domain\\ViewModels\\Response\\ResponseModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T18:40:04.753Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "SuruchiJewellersManagement.Api\\Controllers\\CustomerController.cs",
-              "ToolTip": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\Controllers\\CustomerController.cs",
-              "RelativeToolTip": "SuruchiJewellersManagement.Api\\Controllers\\CustomerController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAcwDIAAAAvAAAAAAAAAA==",
+              "ToolTip": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\Controllers\\CustomerController.cs*",
+              "RelativeToolTip": "SuruchiJewellersManagement.Api\\Controllers\\CustomerController.cs*",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAuwGAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T18:28:58.727Z",
+              "WhenOpened": "2024-07-16T14:04:25.497Z",
               "EditorCaption": ""
             }
           ]

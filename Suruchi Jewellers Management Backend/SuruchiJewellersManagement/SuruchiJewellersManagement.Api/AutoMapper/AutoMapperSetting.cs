@@ -13,6 +13,8 @@ namespace SuruchiJewellersManagement.Api.AutoMapper
             CreateMap<CustomerViewModel, Customer>();
             CreateMap<Customer, CustomerCreateModel>();
             CreateMap<CustomerCreateModel, Customer>();
+            CreateMap<Customer, CustomerUpdateModel>();
+            CreateMap<CustomerUpdateModel, Customer>(); 
         }
     }
 }

@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Update Customer</h3>
+      <hr>
+    </div>
+  </div>
+  <div class="row justify-content-center align-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form class="row g-3" autocomplete="off" autocapitalize="off">
+            <input type="hidden" name="id" [(ngModel)]="customerUpdateModel.id">
+            <div class="col-md-6">
+              <label for="name" class="form-label">Name *</label>
+              <input nz-input placeholder="Name" name="name" [(ngModel)]="customerUpdateModel.name" />
+            </div>
+            <div class="col-md-6">
+              <label for="nickName" class="form-label">Nick Name *</label>
+              <input nz-input placeholder="Nick Name" name="nickName" [(ngModel)]="customerUpdateModel.nickName" />
+            </div>
+            <div class="col-md-6">
+              <label for="code" class="form-label">Code *</label>
+              <input nz-input placeholder="Code" name="code" [(ngModel)]="customerUpdateModel.code" />
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button nz-button nzType="primary" (click)="onClickCustomerUpdate()">
+            <i nz-icon nzType="save" nzTheme="outline"></i>
+            Update
+          </button>
+          <button nz-button nzType="primary" style="margin-left: 3px;" routerLink="/customers">
+            <i nz-icon nzType="rollback" nzTheme="outline"></i>
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-spin" [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

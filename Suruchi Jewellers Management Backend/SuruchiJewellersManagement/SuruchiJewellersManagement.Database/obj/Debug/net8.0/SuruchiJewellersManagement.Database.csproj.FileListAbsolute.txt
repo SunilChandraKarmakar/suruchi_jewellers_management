@@ -15,3 +15,4 @@ D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewe
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Database\obj\Debug\net8.0\SuruchiJewellersManagement.Database.pdb
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Database\obj\Debug\net8.0\SuruchiJewellersManagement.Database.genruntimeconfig.cache
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Database\obj\Debug\net8.0\ref\SuruchiJewellersManagement.Database.dll
+D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Database\obj\Debug\net8.0\SuruchiJewellersManagement.Database.sourcelink.json

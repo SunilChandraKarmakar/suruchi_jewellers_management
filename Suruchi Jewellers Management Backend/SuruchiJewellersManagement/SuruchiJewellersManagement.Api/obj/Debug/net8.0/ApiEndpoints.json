@@ -27,12 +27,95 @@
   },
   {
     "ContainingType": "SuruchiJewellersManagement.Api.Controllers.CustomerController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/Customer/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.CustomerController",
     "Method": "GetAllAsync",
     "RelativePath": "api/Customer/GetAll",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.CustomerController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/Customer/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.CustomerController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/Customer/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "customerUpdateModel",
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Customer.CustomerUpdateModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",

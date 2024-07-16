@@ -1,0 +1,62 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Customers</h3>
+      <hr>
+      <button nz-button nzType="primary" routerLink="/customer-create">
+        <i nz-icon nzType="user-add" nzTheme="outline"></i> 
+        Create Customer
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center align-content-center mt-3">
+    <div class="col-md-10">
+      <nz-table #nzTable [nzData]="customCustomers" nzTableLayout="fixed" nzBordered>
+        <thead>
+          <tr>
+            <th nzCustomFilter>
+              Name
+              <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                <i nz-icon nzType="search"></i>
+              </nz-filter-trigger>
+            </th>
+            <th>Nick Name</th>
+            <th>Code</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of nzTable.data">
+            <td>{{ data.name }}</td>
+            <td>{{ data.nickName }}</td>
+            <td>{{ data.code }}</td>
+            <td>
+              <button nz-button nzType="primary" routerLink="/customer-update/{{data.id}}">
+                <i nz-icon nzType="edit" nzTheme="outline"></i>
+                Edit
+              </button>
+              <button nz-button nzType="primary" style="margin-left: 3px;" (click)="onClickCustomerDelete(data.id)">
+                <i nz-icon nzType="delete" nzTheme="outline"></i>
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <div class="ant-table-filter-dropdown">
+          <div class="search-box">
+            <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+            <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+              Search
+            </button>
+            <button nz-button nzSize="small" (click)="reset()">Reset</button>
+          </div>
+        </div>
+      </nz-dropdown-menu>
+    </div>
+  </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-spin" [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

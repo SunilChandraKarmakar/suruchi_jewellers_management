@@ -10,3 +10,4 @@ D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewe
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Domain\obj\Debug\net8.0\refint\SuruchiJewellersManagement.Domain.dll
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Domain\obj\Debug\net8.0\SuruchiJewellersManagement.Domain.pdb
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Domain\obj\Debug\net8.0\ref\SuruchiJewellersManagement.Domain.dll
+D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Domain\obj\Debug\net8.0\SuruchiJewellersManagement.Domain.sourcelink.json
