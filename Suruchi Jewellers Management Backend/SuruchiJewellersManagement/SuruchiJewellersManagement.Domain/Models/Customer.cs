@@ -5,6 +5,11 @@ namespace SuruchiJewellersManagement.Domain.Models
 {
     public class Customer
     {
+        public Customer()
+        {
+            Orders = new HashSet<Order>();
+        }
+
         public int Id { get; set; }
 
         [Column(TypeName = "nvarchar")]
@@ -21,5 +26,7 @@ namespace SuruchiJewellersManagement.Domain.Models
         [Required(ErrorMessage = "Please, provied code.")]
         [StringLength(15, MinimumLength = 2)]
         public string Code { get; set; }
+
+        public ICollection<Order> Orders { get; set; }  
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SuruchiJewellersManagement.Domain.Models;
 using SuruchiJewellersManagement.Domain.ViewModels.Customer;
+using SuruchiJewellersManagement.Domain.ViewModels.ProductType;
 
 namespace SuruchiJewellersManagement.Api.AutoMapper
 {
@@ -15,6 +16,14 @@ namespace SuruchiJewellersManagement.Api.AutoMapper
             CreateMap<CustomerCreateModel, Customer>();
             CreateMap<Customer, CustomerUpdateModel>();
             CreateMap<CustomerUpdateModel, Customer>(); 
+
+            // Product type
+            CreateMap<ProductType, ProductTypeViewModel>();
+            CreateMap<ProductTypeViewModel, ProductType>();
+            CreateMap<ProductType, ProductTypeCreateModel>();
+            CreateMap<ProductTypeCreateModel, ProductType>();
+            CreateMap<ProductType, ProductTypeUpdateModel>();
+            CreateMap<ProductTypeUpdateModel, ProductType>();   
         }
     }
 }

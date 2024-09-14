@@ -95,6 +95,8 @@ builder.Services.AddSwaggerGen();
 // Dependency Injection
 builder.Services.AddTransient<ICustomerManager, CustomerManager>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddTransient<IProductTypeManager, ProductTypeManager>();
+builder.Services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
 
 var app = builder.Build();
 

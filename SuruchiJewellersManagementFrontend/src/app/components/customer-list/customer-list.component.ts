@@ -41,7 +41,7 @@ export class CustomerListComponent implements OnInit {
     },
     (error: any) => {
       this.spinnerService.hide();
-      this.toastrService.error("Customers cannot show! Please, try again.", "Error");
+      this.toastrService.error("কাস্টমার ডাটাবেস থেকে পাওয়া যাচ্ছেনা! আবার চেষ্টা করুণ।", "ত্রুটি");
     })
   }
 
@@ -61,12 +61,12 @@ export class CustomerListComponent implements OnInit {
     this.spinnerService.show();
     this.customerService.deleteAsync(id).subscribe((result: ResponseModel) => {
       this.spinnerService.hide();
-      this.toastrService.success("Customer deleted.", "Success");
+      this.toastrService.success("কাস্টমার ডিলিট হয়েছে।", "সফল");
       return this.ngOnInit();
     },
     (error: any) => {
       this.spinnerService.hide();
-      this.toastrService.error("Customer cannot deleted! Please, try again.", "Error");
+      this.toastrService.error("কাস্টমার ডিলিট হয়নি! আবার চেষ্টা করুণ।", "ত্রুটি");
     })
   }
 }

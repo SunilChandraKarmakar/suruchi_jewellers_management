@@ -19,10 +19,13 @@ namespace SuruchiJewellersManagement.Database.DbContextFile
 
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = @"Server = DESKTOP-O1NBMET; 
+            string connectionString = @"Server = DESKTOP-I6ENAU2\SQLEXPRESS; 
                                         Database = SuruchiJewellersManagementDb; 
                                         Trusted_Connection = True; 
                                         MultipleActiveResultSets = True; 

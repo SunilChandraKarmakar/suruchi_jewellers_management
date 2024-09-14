@@ -30,12 +30,12 @@ export class CustomerCreateComponent implements OnInit {
       this.spinnerService.show();
       this.customerService.createAsync(this.customerCreateModel).subscribe((result: ResponseModel) => {
         this.spinnerService.hide();
-        this.toastrService.success("Customer created.", "Success");
+        this.toastrService.success("কাস্টমার তৈরি হয়েছে।", "সফল");
         return this.router.navigate(["/customers"]);
       },
       (error: any) => {
         this.spinnerService.hide();
-        this.toastrService.error("Customer cannot created! Please, try again.", "Error");
+        this.toastrService.error("কাস্টমার তৈরি হয় নাই! আবার চেষ্টা করুণ।", "ত্রুটি");
       })
     }    
   }
@@ -44,17 +44,17 @@ export class CustomerCreateComponent implements OnInit {
   private isCustomerFormValidate(): boolean {
     if(this.customerCreateModel.name == undefined || this.customerCreateModel.name == null 
       || this.customerCreateModel.name == "") {
-      this.toastrService.warning("Please, provied name.", "Warning");
+      this.toastrService.warning("প্লিজ, নাম দিন।", "সতর্কতা");
       return false;
     }
     else if(this.customerCreateModel.nickName == undefined || this.customerCreateModel.nickName == null 
       || this.customerCreateModel.nickName == "") {
-      this.toastrService.warning("Please, provied nick name.", "Warning");
+      this.toastrService.warning("ছোট নাম দিন।.", "সতর্কতা");
       return false;
     }
     else if(this.customerCreateModel.code == undefined || this.customerCreateModel.code == null 
       || this.customerCreateModel.code == "") {
-      this.toastrService.warning("Please, provied code.", "Warning");
+      this.toastrService.warning("কোড দিন।", "সতর্কতা");
       return false;
     }
     else {

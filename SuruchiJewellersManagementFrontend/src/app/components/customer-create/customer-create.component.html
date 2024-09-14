@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="text-center">Create Customer</h3>
+      <h3 class="text-center">নতুন কাস্টমার তৈরি করুণ</h3>
       <hr>
     </div>
   </div>
@@ -11,15 +11,15 @@
         <div class="card-body">
           <form class="row g-3" autocomplete="off" autocapitalize="off">
             <div class="col-md-6">
-              <label for="name" class="form-label">Name *</label>
+              <label for="name" class="form-label">নাম *</label>
               <input nz-input placeholder="Name" name="name" [(ngModel)]="customerCreateModel.name" />
             </div>
             <div class="col-md-6">
-              <label for="nickName" class="form-label">Nick Name *</label>
+              <label for="nickName" class="form-label">ছোট নাম *</label>
               <input nz-input placeholder="Nick Name" name="nickName" [(ngModel)]="customerCreateModel.nickName" />
             </div>
             <div class="col-md-6">
-              <label for="code" class="form-label">Code *</label>
+              <label for="code" class="form-label">কোড *</label>
               <input nz-input placeholder="Code" name="code" [(ngModel)]="customerCreateModel.code" />
             </div>
           </form>
@@ -27,11 +27,11 @@
         <div class="card-footer">
           <button nz-button nzType="primary" (click)="onClickCustomerSave()">
             <i nz-icon nzType="save" nzTheme="outline"></i>
-            Save
+            সেভ করুণ
           </button>
           <button nz-button nzType="primary" style="margin-left: 3px;" routerLink="/customers">
             <i nz-icon nzType="rollback" nzTheme="outline"></i>
-            Cancel
+            বাতিল করুণ
           </button>
         </div>
       </div>

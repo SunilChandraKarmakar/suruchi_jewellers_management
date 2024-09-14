@@ -1,11 +1,11 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="text-center">Customers</h3>
+      <h3 class="text-center">কাস্টমারের তালিকা</h3>
       <hr>
       <button nz-button nzType="primary" routerLink="/customer-create">
         <i nz-icon nzType="user-add" nzTheme="outline"></i> 
-        Create Customer
+        কাস্টমার তৈরি করুণ
       </button>
     </div>
   </div>
@@ -15,14 +15,14 @@
         <thead>
           <tr>
             <th nzCustomFilter>
-              Name
+              নাম
               <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
                 <i nz-icon nzType="search"></i>
               </nz-filter-trigger>
             </th>
-            <th>Nick Name</th>
-            <th>Code</th>
-            <th>Action</th>
+            <th>ছোট নাম</th>
+            <th>কোড</th>
+            <th>প্রক্রিয়া</th>
           </tr>
         </thead>
         <tbody>
@@ -33,11 +33,11 @@
             <td>
               <button nz-button nzType="primary" routerLink="/customer-update/{{data.id}}">
                 <i nz-icon nzType="edit" nzTheme="outline"></i>
-                Edit
+                এডিট
               </button>
               <button nz-button nzType="primary" style="margin-left: 3px;" (click)="onClickCustomerDelete(data.id)">
                 <i nz-icon nzType="delete" nzTheme="outline"></i>
-                Delete
+                ডিলিট
               </button>
             </td>
           </tr>
@@ -48,9 +48,9 @@
           <div class="search-box">
             <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
             <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
-              Search
+              সার্চ করুণ
             </button>
-            <button nz-button nzSize="small" (click)="reset()">Reset</button>
+            <button nz-button nzSize="small" (click)="reset()">রিসেট</button>
           </div>
         </div>
       </nz-dropdown-menu>
