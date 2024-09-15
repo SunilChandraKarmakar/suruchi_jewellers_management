@@ -18,13 +18,19 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ProductTypeListComponent } from './components/product-type-list/product-type-list.component';
+import { ProductTypeCreateComponent } from './components/product-type-create/product-type-create.component';
+import { ProductTypeUpdateComponent } from './components/product-type-update/product-type-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
     CustomerCreateComponent,
-    CustomerUpdateComponent
+    CustomerUpdateComponent,
+    ProductTypeListComponent,
+    ProductTypeCreateComponent,
+    ProductTypeUpdateComponent
   ],
 
   imports: [

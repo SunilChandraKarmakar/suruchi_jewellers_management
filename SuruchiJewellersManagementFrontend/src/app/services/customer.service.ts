@@ -22,6 +22,7 @@ export class CustomerService {
     return getCustomers;
   }
 
+  // Get customer by id
   getByIdAsync(id: number): Observable<ResponseModel> {   
     const getByIdAsyncUrl: string = `${this.appBaseUrl}customer/getById/${id}`;
     let getCustomer: Observable<ResponseModel> = this.httpClient.get<ResponseModel>(getByIdAsyncUrl);
@@ -29,6 +30,7 @@ export class CustomerService {
     return getCustomer;
   }
 
+  // Create customer
   createAsync(createModel: CustomerCreateModel): Observable<ResponseModel> {
     const createAsyncUrl: string = `${this.appBaseUrl}customer/create`;
     let createCustomer: Observable<ResponseModel> = this.httpClient.post<ResponseModel>(createAsyncUrl, createModel);
@@ -36,6 +38,7 @@ export class CustomerService {
     return createCustomer;
   }
 
+  // Update customer
   updateAsync(id: number, updateModel: CustomerUpdateModel): Observable<ResponseModel> {
     const updateAsyncUrl: string = `${this.appBaseUrl}customer/update/${id}`;
     let updateCustomer: Observable<ResponseModel> = this.httpClient.put<ResponseModel>(updateAsyncUrl, updateModel);
@@ -43,6 +46,7 @@ export class CustomerService {
     return updateCustomer;
   }  
 
+  // Delete customer by id
   deleteAsync(id: number): Observable<ResponseModel> {
     const deleteAsyncUrl: string = `${this.appBaseUrl}customer/delete/${id}`;
     let deleteCustomer: Observable<ResponseModel> = this.httpClient.delete<ResponseModel>(deleteAsyncUrl);
