@@ -14,7 +14,7 @@ import { ProductTypeService } from 'src/app/services/product-type.service';
 
 export class ProductTypeCreateComponent implements OnInit {
 
-  // Customer product type model
+  // Product type model
   productTypeCreateModel: ProductTypeCreateModel = new ProductTypeCreateModel();
 
   constructor(private toastrService: ToastrService, private productTypeService: ProductTypeService, 

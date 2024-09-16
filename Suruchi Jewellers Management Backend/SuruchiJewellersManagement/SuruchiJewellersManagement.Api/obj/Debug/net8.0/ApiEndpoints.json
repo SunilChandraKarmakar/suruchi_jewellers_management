@@ -129,6 +129,135 @@
     ]
   },
   {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductQuantityController",
+    "Method": "CreateAsync",
+    "RelativePath": "api/ProductQuantity/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productQuantityCreateModel",
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.ProductQuantity.ProductQuantityCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductQuantityController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/ProductQuantity/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductQuantityController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/ProductQuantity/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductQuantityController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/ProductQuantity/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductQuantityController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/ProductQuantity/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productTypeUpdateModel",
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.ProductQuantity.ProductQuantityUpdateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductTypeController",
     "Method": "CreateAsync",
     "RelativePath": "api/ProductType/Create",

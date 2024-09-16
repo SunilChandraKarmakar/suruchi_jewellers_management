@@ -6,22 +6,28 @@ import { CustomerUpdateComponent } from './components/customer-update/customer-u
 import { ProductTypeListComponent } from './components/product-type-list/product-type-list.component';
 import { ProductTypeCreateComponent } from './components/product-type-create/product-type-create.component';
 import { ProductTypeUpdateComponent } from './components/product-type-update/product-type-update.component';
+import { ProductQuantityListComponent } from './components/product-quantity-list/product-quantity-list.component';
+import { ProductQuantityCreateComponent } from './components/product-quantity-create/product-quantity-create.component';
+import { ProductQuantityUpdateComponent } from './components/product-quantity-update/product-quantity-update.component';
 
 const routes: Routes = [
   // For not match url
-  // { path: "*", component: CustomerListComponent, pathMatch: "full" }, 
+  { path: "*", component: CustomerListComponent, pathMatch: "full" }, 
 
   // For customer
-  { path: "", component: CustomerListComponent, pathMatch: "full" },
   { path: "customers", component: CustomerListComponent, pathMatch: "full" },
   { path: "customer-create", component: CustomerCreateComponent, pathMatch: "full" },
   { path: "customer-update/:recordId", component: CustomerUpdateComponent, pathMatch: "full" },
 
   // For product type
-  { path: "", component: ProductTypeListComponent, pathMatch: "full" },
   { path: "product-types", component: ProductTypeListComponent, pathMatch: "full" },
   { path: "product-type-create", component: ProductTypeCreateComponent, pathMatch: "full" },
   { path: "product-type-update/:recordId", component: ProductTypeUpdateComponent, pathMatch: "full" },
+
+  // For product quantity
+  { path: "product-quantities", component: ProductQuantityListComponent, pathMatch: "full" },
+  { path: "product-quantity-create", component: ProductQuantityCreateComponent, pathMatch: "full" },
+  { path: "product-quantity-update/:recordId", component: ProductQuantityUpdateComponent, pathMatch: "full" },
 ];
 
 @NgModule({

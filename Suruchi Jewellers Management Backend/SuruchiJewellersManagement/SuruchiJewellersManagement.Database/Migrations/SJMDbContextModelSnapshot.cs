@@ -270,6 +270,24 @@ namespace SuruchiJewellersManagement.Database.Migrations
                     b.ToTable("OrderDetails");
                 });
 
+            modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.ProductQuantity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductQuantities");
+                });
+
             modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.ProductType", b =>
                 {
                     b.Property<int>("Id")

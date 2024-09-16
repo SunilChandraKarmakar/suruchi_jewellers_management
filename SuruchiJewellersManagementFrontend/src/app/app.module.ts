@@ -21,6 +21,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ProductTypeListComponent } from './components/product-type-list/product-type-list.component';
 import { ProductTypeCreateComponent } from './components/product-type-create/product-type-create.component';
 import { ProductTypeUpdateComponent } from './components/product-type-update/product-type-update.component';
+import { ProductQuantityListComponent } from './components/product-quantity-list/product-quantity-list.component';
+import { ProductQuantityCreateComponent } from './components/product-quantity-create/product-quantity-create.component';
+import { ProductQuantityUpdateComponent } from './components/product-quantity-update/product-quantity-update.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { ProductTypeUpdateComponent } from './components/product-type-update/pro
     CustomerUpdateComponent,
     ProductTypeListComponent,
     ProductTypeCreateComponent,
-    ProductTypeUpdateComponent
+    ProductTypeUpdateComponent,
+    ProductQuantityListComponent,
+    ProductQuantityCreateComponent,
+    ProductQuantityUpdateComponent
   ],
 
   imports: [

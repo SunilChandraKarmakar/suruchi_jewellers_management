@@ -97,6 +97,8 @@ builder.Services.AddTransient<ICustomerManager, CustomerManager>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 builder.Services.AddTransient<IProductTypeManager, ProductTypeManager>();
 builder.Services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
+builder.Services.AddTransient<IProductQuantityRepository, ProductQuantityRepository>();
+builder.Services.AddTransient<IProductQuantityManager, ProductQuantityManager>();
 
 var app = builder.Build();
 
