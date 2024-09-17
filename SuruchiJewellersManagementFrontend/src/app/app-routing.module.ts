@@ -9,6 +9,9 @@ import { ProductTypeUpdateComponent } from './components/product-type-update/pro
 import { ProductQuantityListComponent } from './components/product-quantity-list/product-quantity-list.component';
 import { ProductQuantityCreateComponent } from './components/product-quantity-create/product-quantity-create.component';
 import { ProductQuantityUpdateComponent } from './components/product-quantity-update/product-quantity-update.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductCreateComponent } from './components/product-create/product-create.component';
+import { ProductUpdateComponent } from './components/product-update/product-update.component';
 
 const routes: Routes = [
   // For not match url
@@ -28,6 +31,11 @@ const routes: Routes = [
   { path: "product-quantities", component: ProductQuantityListComponent, pathMatch: "full" },
   { path: "product-quantity-create", component: ProductQuantityCreateComponent, pathMatch: "full" },
   { path: "product-quantity-update/:recordId", component: ProductQuantityUpdateComponent, pathMatch: "full" },
+
+  // For product
+  { path: "products", component: ProductListComponent, pathMatch: "full" },
+  { path: "product-create", component: ProductCreateComponent, pathMatch: "full" },
+  { path: "product-update/:recordId", component: ProductUpdateComponent, pathMatch: "full" }
 ];
 
 @NgModule({

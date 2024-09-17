@@ -21,6 +21,7 @@ namespace SuruchiJewellersManagement.Database.DbContextFile
         public DbSet<Customer> Customers { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<ProductQuantity> ProductQuantities { get; set; }   
+        public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
 

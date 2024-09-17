@@ -99,6 +99,8 @@ builder.Services.AddTransient<IProductTypeManager, ProductTypeManager>();
 builder.Services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
 builder.Services.AddTransient<IProductQuantityRepository, ProductQuantityRepository>();
 builder.Services.AddTransient<IProductQuantityManager, ProductQuantityManager>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IProductManager, ProductManager>();
 
 var app = builder.Build();
 

@@ -24,6 +24,9 @@ import { ProductTypeUpdateComponent } from './components/product-type-update/pro
 import { ProductQuantityListComponent } from './components/product-quantity-list/product-quantity-list.component';
 import { ProductQuantityCreateComponent } from './components/product-quantity-create/product-quantity-create.component';
 import { ProductQuantityUpdateComponent } from './components/product-quantity-update/product-quantity-update.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductCreateComponent } from './components/product-create/product-create.component';
+import { ProductUpdateComponent } from './components/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ProductQuantityUpdateComponent } from './components/product-quantity-up
     ProductTypeUpdateComponent,
     ProductQuantityListComponent,
     ProductQuantityCreateComponent,
-    ProductQuantityUpdateComponent
+    ProductQuantityUpdateComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    ProductUpdateComponent
   ],
 
   imports: [
