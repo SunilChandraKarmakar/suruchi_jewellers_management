@@ -129,6 +129,32 @@
     ]
   },
   {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.OrderController",
+    "Method": "CreateAsync",
+    "RelativePath": "api/Order/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderCreateModel",
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Order.OrderCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductController",
     "Method": "CreateAsync",
     "RelativePath": "api/Product/Create",

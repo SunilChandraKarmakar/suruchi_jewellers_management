@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using SuruchiJewellersManagement.Domain.Models;
 using SuruchiJewellersManagement.Domain.ViewModels.Customer;
+using SuruchiJewellersManagement.Domain.ViewModels.Order;
+using SuruchiJewellersManagement.Domain.ViewModels.OrderDetails;
 using SuruchiJewellersManagement.Domain.ViewModels.Product;
 using SuruchiJewellersManagement.Domain.ViewModels.ProductQuantity;
 using SuruchiJewellersManagement.Domain.ViewModels.ProductType;
@@ -42,6 +44,16 @@ namespace SuruchiJewellersManagement.Api.AutoMapper
             CreateMap<ProductCreateModel, Product>();
             CreateMap<Product, ProductUpdateModel>();
             CreateMap<ProductUpdateModel, Product>();
+
+            // Order
+            CreateMap<Order, OrderCreateModel>()
+                .ForMember(d => d.OrderDetailsCreateModels, s => s.MapFrom(m => m.OrderDetails));
+            CreateMap<OrderCreateModel, Order>()
+                .ForMember(d => d.OrderDetails, s => s.MapFrom(m => m.OrderDetailsCreateModels));
+
+            // Order details
+            CreateMap<OrderDetails, OrderCreateModel>();
+            CreateMap<OrderDetailsCreateModel, OrderDetails>();
         }
     }
 }

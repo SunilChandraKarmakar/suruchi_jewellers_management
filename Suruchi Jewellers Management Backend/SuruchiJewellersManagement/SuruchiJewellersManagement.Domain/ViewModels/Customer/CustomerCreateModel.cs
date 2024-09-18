@@ -14,10 +14,5 @@ namespace SuruchiJewellersManagement.Domain.ViewModels.Customer
         [Required(ErrorMessage = "Please, provied nick name.")]
         [StringLength(10, MinimumLength = 2)]
         public string NickName { get; set; }
-
-        [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied code.")]
-        [StringLength(15, MinimumLength = 2)]
-        public string Code { get; set; }
     }
 }

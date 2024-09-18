@@ -10,29 +10,22 @@ namespace SuruchiJewellersManagement.Domain.Models
         [Required(ErrorMessage = "Please, provied order.")]
         public int OrderId { get; set; }
 
-        [Column(TypeName = "nvarchar")]
         [Required(ErrorMessage = "Please, provied type.")]
-        [StringLength(10, MinimumLength = 1)]
-        public string Type { get; set; }
+        public int ProductTypeId { get; set; }
+
+        [Required(ErrorMessage = "Please, provied product.")]
+        public int ProductId { get; set; }
+
+        [Required(ErrorMessage = "Please, provied product quantity.")]
+        public int ProductQuantityId { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied vori.")]
-        [StringLength(50, MinimumLength = 1)]
-        public string Vori { get; set; }
-
-        [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied ana.")]
-        [StringLength(50, MinimumLength = 1)]
-        public string Ana { get; set; }
-
-        [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied roti.")]
-        [StringLength(50, MinimumLength = 1)]
-        public string Roti { get; set; }
-
-        [Column(TypeName = "nvarchar")]
-        public string Optional { get; set; }
+        [StringLength(20, MinimumLength = 1)]
+        public string? Optional { get; set; }
 
         public Order Order { get; set; }
+        public ProductType ProductType { get; set; }
+        public Product Product { get; set; }
+        public ProductQuantity ProductQuantity { get; set; }
     }
 }

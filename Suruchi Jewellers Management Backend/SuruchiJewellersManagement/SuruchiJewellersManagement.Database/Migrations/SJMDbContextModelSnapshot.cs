@@ -163,11 +163,6 @@ namespace SuruchiJewellersManagement.Database.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -195,35 +190,38 @@ namespace SuruchiJewellersManagement.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar");
 
+                    b.Property<string>("Ana")
+                        .IsRequired()
+                        .HasColumnType("nvarchar");
+
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Day")
+                    b.Property<string>("Date")
                         .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar");
-
-                    b.Property<string>("Month")
-                        .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar");
-
-                    b.Property<string>("Note")
-                        .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("nvarchar");
 
                     b.Property<string>("OrderNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar");
 
-                    b.Property<string>("Year")
+                    b.Property<int?>("ProductOptionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Roti")
                         .IsRequired()
-                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar");
+
+                    b.Property<string>("Vori")
+                        .IsRequired()
                         .HasColumnType("nvarchar");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("ProductOptionId");
 
                     b.ToTable("Orders");
                 });
@@ -236,36 +234,31 @@ namespace SuruchiJewellersManagement.Database.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Ana")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar");
-
                     b.Property<string>("Optional")
-                        .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("nvarchar");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Roti")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar");
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar");
+                    b.Property<int>("ProductQuantityId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Vori")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar");
+                    b.Property<int>("ProductTypeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("ProductQuantityId");
+
+                    b.HasIndex("ProductTypeId");
 
                     b.ToTable("OrderDetails");
                 });
@@ -286,6 +279,24 @@ namespace SuruchiJewellersManagement.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.ProductOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductOptions");
                 });
 
             modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.ProductQuantity", b =>
@@ -458,7 +469,13 @@ namespace SuruchiJewellersManagement.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SuruchiJewellersManagement.Domain.Models.ProductOption", "ProductOption")
+                        .WithMany("Orders")
+                        .HasForeignKey("ProductOptionId");
+
                     b.Navigation("Customer");
+
+                    b.Navigation("ProductOption");
                 });
 
             modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.OrderDetails", b =>
@@ -469,7 +486,31 @@ namespace SuruchiJewellersManagement.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SuruchiJewellersManagement.Domain.Models.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SuruchiJewellersManagement.Domain.Models.ProductQuantity", "ProductQuantity")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductQuantityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SuruchiJewellersManagement.Domain.Models.ProductType", "ProductType")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Order");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("ProductQuantity");
+
+                    b.Navigation("ProductType");
                 });
 
             modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.Customer", b =>
@@ -478,6 +519,26 @@ namespace SuruchiJewellersManagement.Database.Migrations
                 });
 
             modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.Product", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.ProductOption", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.ProductQuantity", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("SuruchiJewellersManagement.Domain.Models.ProductType", b =>
                 {
                     b.Navigation("OrderDetails");
                 });

@@ -5,11 +5,18 @@ namespace SuruchiJewellersManagement.Domain.Models
 {
     public class ProductType
     {
+        public ProductType()
+        {
+            OrderDetails = new HashSet<OrderDetails>();
+        }
+
         public int Id { get; set; }
 
         [Column(TypeName = "nvarchar")]
         [Required(ErrorMessage = "Please, provied name.")]
         [StringLength(20, MinimumLength = 1)]
         public string Name { get; set; }
+
+        public ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

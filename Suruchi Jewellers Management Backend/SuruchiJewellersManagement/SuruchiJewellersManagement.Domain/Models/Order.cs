@@ -12,13 +12,26 @@ namespace SuruchiJewellersManagement.Domain.Models
 
         public int Id { get; set; }
 
-        [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied order number.")]
-        [DataType(DataType.PhoneNumber)]
-        public int OrderNumber { get; set; }
-
         [Required(ErrorMessage = "Please, provied customer.")]
         public int CustomerId { get; set; }
+
+        [Column(TypeName = "nvarchar")]
+        [Required(ErrorMessage = "Please, provied order number.")]
+        public int OrderNumber { get; set; }
+
+        [Column(TypeName = "nvarchar")]
+        [Required(ErrorMessage = "Please, provied vori.")]
+        public int Vori { get; set; }
+
+        [Column(TypeName = "nvarchar")]
+        [Required(ErrorMessage = "Please, provied ana.")]
+        public int Ana { get; set; }
+
+        [Column(TypeName = "nvarchar")]
+        [Required(ErrorMessage = "Please, provied roti.")]
+        public int Roti { get; set; }
+
+        public int? ProductOptionId { get; set; }
 
         [Column(TypeName = "nvarchar")]
         [Required(ErrorMessage = "Please, provied amount.")]
@@ -26,24 +39,12 @@ namespace SuruchiJewellersManagement.Domain.Models
         public double Amount { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied day.")]
-        [StringLength(3, MinimumLength = 2)]
-        public string Day { get; set; }
-
-        [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied month.")]
-        [StringLength(3, MinimumLength = 2)]
-        public string Month { get; set; }
-
-        [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied year.")]
-        [StringLength(4, MinimumLength = 4)]
-        public string Year { get; set; }
-
-        [Column(TypeName = "nvarchar")]
-        public string Note { get; set; }
+        [Required(ErrorMessage = "Please, provied date.")]
+        [StringLength(20, MinimumLength = 1)]
+        public string Date { get; set; }
 
         public Customer Customer { get; set; }
+        public ProductOption ProductOption { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

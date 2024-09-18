@@ -22,11 +22,6 @@ namespace SuruchiJewellersManagement.Domain.Models
         [StringLength(10, MinimumLength = 2)]
         public string NickName { get; set; }
 
-        [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied code.")]
-        [StringLength(15, MinimumLength = 2)]
-        public string Code { get; set; }
-
         public ICollection<Order> Orders { get; set; }  
     }
 }
