@@ -20,7 +20,7 @@ namespace SuruchiJewellersManagement.Domain.Models
         public int ProductQuantityId { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [StringLength(20, MinimumLength = 1)]
+        [StringLength(80)]
         public string? Optional { get; set; }
 
         public Order Order { get; set; }

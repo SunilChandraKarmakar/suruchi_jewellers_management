@@ -10,27 +10,22 @@ namespace SuruchiJewellersManagement.Domain.ViewModels.Order
         public int CustomerId { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied order number.")]
-        public int OrderNumber { get; set; }
+        public string? OrderNumber { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied vori.")]
-        public int Vori { get; set; }
+        public string? Vori { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied ana.")]
-        public int Ana { get; set; }
+        public string? Ana { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [Required(ErrorMessage = "Please, provied roti.")]
-        public int Roti { get; set; }
+        public string Roti { get; set; }
 
         public int? ProductOptionId { get; set; }
 
         [Column(TypeName = "nvarchar")]
         [Required(ErrorMessage = "Please, provied amount.")]
-        [DataType(DataType.Currency)]
-        public double Amount { get; set; }
+        public string Amount { get; set; }
 
         [Column(TypeName = "nvarchar")]
         [Required(ErrorMessage = "Please, provied date.")]

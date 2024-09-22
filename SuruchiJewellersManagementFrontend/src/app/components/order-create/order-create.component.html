@@ -1,0 +1,45 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">নতুন অর্ডার তৈরি করুণ</h3>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form class="row g-3" autocomplete="off" autocapitalize="off">
+            <div class="col-md-12">
+              <label for="name" class="form-label">নাম *</label> <br>
+              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" 
+                name="customerId" [(ngModel)]="orderCreateModel.customerId">
+                <nz-option nzLabel="{{customer.name}}" nzValue="{{customer.id}}" *ngFor="let customer of customers"></nz-option>
+              </nz-select>
+            </div>
+            <div class="col-md-10">
+              <table class="table table-bordered">
+                <thead>
+                  
+                </thead>
+              </table>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button nz-button nzType="primary" (click)="onClickOrderSave()">
+            <i nz-icon nzType="save" nzTheme="outline"></i>
+            সেভ করুণ
+          </button>
+          <button nz-button nzType="primary" style="margin-left: 3px;" routerLink="/orders">
+            <i nz-icon nzType="rollback" nzTheme="outline"></i>
+            বাতিল করুণ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-spin" [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

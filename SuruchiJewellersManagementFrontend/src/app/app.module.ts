@@ -27,6 +27,9 @@ import { ProductQuantityUpdateComponent } from './components/product-quantity-up
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductCreateComponent } from './components/product-create/product-create.component';
 import { ProductUpdateComponent } from './components/product-update/product-update.component';
+import { OrderCreateComponent } from './components/order-create/order-create.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { ProductUpdateComponent } from './components/product-update/product-upda
     ProductQuantityUpdateComponent,
     ProductListComponent,
     ProductCreateComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    OrderListComponent,
+    OrderCreateComponent
   ],
 
   imports: [
@@ -60,7 +65,8 @@ import { ProductUpdateComponent } from './components/product-update/product-upda
     NzIconModule,
     NzInputModule,
     NzTableModule,
-    NzDropDownModule
+    NzDropDownModule,
+    NzSelectModule
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,5 +1,4 @@
-﻿using SuruchiJewellersManagement.Domain.ViewModels.Order;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SuruchiJewellersManagement.Domain.ViewModels.OrderDetails
@@ -16,7 +15,6 @@ namespace SuruchiJewellersManagement.Domain.ViewModels.OrderDetails
         public int ProductQuantityId { get; set; }
 
         [Column(TypeName = "nvarchar")]
-        [StringLength(20, MinimumLength = 1)]
         public string? Optional { get; set; }
     }
 }

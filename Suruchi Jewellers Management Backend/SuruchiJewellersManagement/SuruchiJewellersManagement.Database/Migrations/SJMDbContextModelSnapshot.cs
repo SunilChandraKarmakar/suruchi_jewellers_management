@@ -188,10 +188,11 @@ namespace SuruchiJewellersManagement.Database.Migrations
 
                     b.Property<string>("Amount")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("nvarchar");
 
                     b.Property<string>("Ana")
-                        .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("nvarchar");
 
                     b.Property<int>("CustomerId")
@@ -203,7 +204,7 @@ namespace SuruchiJewellersManagement.Database.Migrations
                         .HasColumnType("nvarchar");
 
                     b.Property<string>("OrderNumber")
-                        .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("nvarchar");
 
                     b.Property<int?>("ProductOptionId")
@@ -211,10 +212,11 @@ namespace SuruchiJewellersManagement.Database.Migrations
 
                     b.Property<string>("Roti")
                         .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("nvarchar");
 
                     b.Property<string>("Vori")
-                        .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("nvarchar");
 
                     b.HasKey("Id");
@@ -235,7 +237,7 @@ namespace SuruchiJewellersManagement.Database.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Optional")
-                        .HasMaxLength(20)
+                        .HasMaxLength(80)
                         .HasColumnType("nvarchar");
 
                     b.Property<int>("OrderId")
