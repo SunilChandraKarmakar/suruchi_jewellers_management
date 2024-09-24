@@ -6,23 +6,88 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-10">
       <div class="card shadow-sm">
         <div class="card-body">
           <form class="row g-3" autocomplete="off" autocapitalize="off">
-            <div class="col-md-12">
+            <div class="col-md-4">
               <label for="name" class="form-label">নাম *</label> <br>
-              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" 
+              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="কাস্টমার সিলেক্ট করুন" 
                 name="customerId" [(ngModel)]="orderCreateModel.customerId">
                 <nz-option nzLabel="{{customer.name}}" nzValue="{{customer.id}}" *ngFor="let customer of customers"></nz-option>
               </nz-select>
             </div>
-            <div class="col-md-10">
-              <table class="table table-bordered">
+            <div class="col-md-4">
+              <label for="name" class="form-label">অর্ডার নাম্বার *</label> <br>
+              <input name="orderNumber" nz-input placeholder="অর্ডার নাম্বার" [(ngModel)]="orderCreateModel.orderNumber" />
+            </div>
+            <div class="col-md-12 mt-4 mb-4">
+              <table class="table table-bordered text-center">
                 <thead>
-                  
+                  <tr>
+                    <th>প্রোডাক্ট টাইপ</th>
+                    <th>প্রোডাক্ট</th>
+                    <th>কোয়ান্টিটি</th>
+                    <th>অপশন</th>
+                  </tr>
                 </thead>
+                <tbody>
+                  <tr *ngFor="let orderDetail of orderCreateModel.orderDetailsCreateModels">
+                    <td>
+                      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="টাইপ সিলেক্ট করুন" 
+                        name="productTypeId" [(ngModel)]="orderDetail.productTypeId">
+                        <nz-option nzLabel="{{productType.name}}" nzValue="{{productType.id}}" 
+                          *ngFor="let productType of productTypes">
+                        </nz-option>
+                      </nz-select>
+                    </td>
+                    <td>
+                      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="প্রোডাক্ট সিলেক্ট করুন" 
+                        name="productId" [(ngModel)]="orderDetail.productId">
+                        <nz-option nzLabel="{{product.name}}" nzValue="{{product.id}}" 
+                          *ngFor="let product of products">
+                        </nz-option>
+                      </nz-select>
+                    </td>
+                    <td>
+                      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="কোয়ান্টিটি সিলেক্ট করুন" 
+                        name="productQuantityId" [(ngModel)]="orderDetail.productQuantityId">
+                        <nz-option nzLabel="{{productQuantity.name}}" nzValue="{{productQuantity.id}}" 
+                          *ngFor="let productQuantity of productQuantities">
+                        </nz-option>
+                      </nz-select>
+                    </td>
+                    <td>
+                      <input name="optional" nz-input placeholder="নোট" [(ngModel)]="orderDetail.optional" />
+                    </td>
+                  </tr>
+                </tbody>
               </table>
+            </div>
+            <div class="col-md-4">
+              <label for="vori" class="form-label">ভরি</label> <br>
+              <input name="vori" nz-input placeholder="ভরি" [(ngModel)]="orderCreateModel.vori" />
+            </div>
+            <div class="col-md-4">
+              <label for="ana" class="form-label">আনা</label> <br>
+              <input name="ana" nz-input placeholder="আনা" [(ngModel)]="orderCreateModel.ana" />
+            </div>
+            <div class="col-md-4">
+              <label for="roti" class="form-label">রতি</label> <br>
+              <input name="roti" nz-input placeholder="রতি" [(ngModel)]="orderCreateModel.roti" />
+            </div>
+            <div class="col-md-4">
+              <label for="productOptionId" class="form-label">অপশন</label> <br>
+              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="অপশন সিলেক্ট করুন" 
+                name="productOptionId" [(ngModel)]="orderCreateModel.productOptionId">
+                <nz-option nzLabel="{{productOption.name}}" nzValue="{{productOption.id}}" 
+                  *ngFor="let productOption of productOptions">
+                </nz-option>
+              </nz-select>
+            </div>
+            <div class="col-md-4">
+              <label for="amount" class="form-label">টাকা *</label> <br>
+              <input name="amount" nz-input placeholder="টাকা" [(ngModel)]="orderCreateModel.amount" />
             </div>
           </form>
         </div>
