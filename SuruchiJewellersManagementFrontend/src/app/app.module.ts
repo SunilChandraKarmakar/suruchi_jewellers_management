@@ -30,6 +30,7 @@ import { ProductUpdateComponent } from './components/product-update/product-upda
 import { OrderCreateComponent } from './components/order-create/order-create.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { OrderUpdateComponent } from './components/order-update/order-update.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     ProductCreateComponent,
     ProductUpdateComponent,
     OrderListComponent,
-    OrderCreateComponent
+    OrderCreateComponent,
+    OrderUpdateComponent
   ],
 
   imports: [

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/response-model';
 import { CustomerCreateModel } from '../models/customer/customer-create-model';
 import { CustomerUpdateModel } from '../models/customer/customer-update-model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { CustomerUpdateModel } from '../models/customer/customer-update-model';
 
 export class CustomerService {
 
-  private appBaseUrl: string = "https://localhost:7001/api/";
+  private appBaseUrl: string = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
 
   // Get customers

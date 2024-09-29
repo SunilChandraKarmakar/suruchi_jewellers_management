@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/response-model';
 import { ProductCreateModel } from '../models/product/product-create-model';
 import { ProductUpateModel } from '../models/product/product-update-model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { ProductUpateModel } from '../models/product/product-update-model';
 
 export class ProductService {
 
-  private appBaseUrl: string = "https://localhost:7001/api/";
+  private appBaseUrl: string = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
 
   // Get products

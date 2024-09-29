@@ -28,11 +28,15 @@ namespace SuruchiJewellersManagement.Database.DbContextFile
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = @"Server = DESKTOP-I6ENAU2\SQLEXPRESS; 
+            // For local Sql Server
+            var connectionString = @"Server = DESKTOP-I6ENAU2\SQLEXPRESS; 
                                         Database = SuruchiJewellersManagementDb; 
                                         Trusted_Connection = True; 
                                         MultipleActiveResultSets = True; 
                                         TrustServerCertificate = True";
+
+            // For Sql Server
+            //string connectionString = @"workstation id=SuruchiJewellersManagementDb.mssql.somee.com;packet size=4096;user id=sunilkarmakar_SQLLogin_1;pwd=wrjveenytu;data source=SuruchiJewellersManagementDb.mssql.somee.com;persist security info=False;initial catalog=SuruchiJewellersManagementDb;TrustServerCertificate=True";
 
             optionsBuilder.UseSqlServer(connectionString);
         }

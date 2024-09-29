@@ -1,3 +1,99 @@
-<p>
-  order-list works!
-</p>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">অর্ডারের তালিকা</h3>
+      <hr>
+      <button nz-button nzType="primary" routerLink="/order-create">
+        <i nz-icon nzType="user-add" nzTheme="outline"></i> 
+        অর্ডার তৈরি করুণ
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center align-content-center mt-3">
+    <div class="col-md-12">
+      <nz-table #nzTable [nzData]="customOrders" nzTableLayout="fixed" nzBordered>
+        <thead class="text-center">
+          <tr>
+            <th nzCustomFilter>
+              কাস্টমার
+              <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                <i nz-icon nzType="search"></i>
+              </nz-filter-trigger>
+            </th>
+            <th>ভরি / আনা / রতি</th>
+            <th>টাকা</th>
+            <th>প্রক্রিয়া</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let data of customOrders; let i = index">
+            <tr>
+              <td>{{ data.customerName }} ({{ data.orderNumber }})</td>
+              <td>
+                <span *ngIf="data.productOptionName">{{ data.productOptionName }} <br></span> 
+                <span *ngIf="data.vori">{{ data.vori }} ভরি </span> 
+                <span *ngIf="data.ana">{{ data.ana }} আনা </span>
+                <span *ngIf="data.roti">{{ data.roti }} রতি </span>
+              </td>
+              <td>
+                <span>তারিখঃ {{ data.date }}</span><br>
+                <span>টাকাঃ {{ data.amount }}</span>
+              </td>
+              <td>
+                <button nz-button nzType="primary" routerLink="/product-update/{{data.id}}">
+                  <i nz-icon nzType="edit" nzTheme="outline"></i>
+                  এডিট
+                </button>
+                <button nz-button nzType="primary" style="margin-left: 3px;" (click)="onClickProductDelete(data.id)">
+                  <i nz-icon nzType="delete" nzTheme="outline"></i>
+                  ডিলিট
+                </button>
+                <button *ngIf="index != i" (click)="Open(i)" nz-button nzType="primary" style="margin-left: 3px;">
+                  <i nz-icon nzType="plus-circle" nzTheme="outline" ></i>
+                </button>
+                <button *ngIf="index == i" (click)="Close()" nz-button nzType="primary" style="margin-left: 3px;">
+                  <i nz-icon nzType="minus-circle" nzTheme="outline"></i>
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="index == i">
+              <td colspan="2">
+                <nz-table [nzData]="data.orderDetailsViewModels" [nzFrontPagination]="false" [nzShowPagination]="false">
+                  <thead class="text-center">
+                    <tr>
+                      <th class="text-center">অর্ডার বিবরণ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let orderDetails of data.orderDetailsViewModels">
+                      <td>
+                        <span>{{ orderDetails.productTypeName }} </span>
+                        <span>{{ orderDetails.productName }} </span>
+                        <span>{{ orderDetails.productQuantityName }} </span>
+                        <span *ngIf="orderDetails.optional">({{ orderDetails.optional }} )</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </nz-table>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </nz-table>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <div class="ant-table-filter-dropdown">
+          <div class="search-box">
+            <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+            <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+              সার্চ করুণ
+            </button>
+            <button nz-button nzSize="small" (click)="reset()">রিসেট</button>
+          </div>
+        </div>
+      </nz-dropdown-menu>
+    </div>
+  </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-spin" [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

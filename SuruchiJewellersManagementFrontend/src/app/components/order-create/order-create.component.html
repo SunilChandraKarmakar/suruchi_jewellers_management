@@ -6,15 +6,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-8">
       <div class="card shadow-sm">
         <div class="card-body">
           <form class="row g-3" autocomplete="off" autocapitalize="off">
             <div class="col-md-4">
+              <label for="name" class="form-label">ডেট *</label> <br>
+              <input name="date" nz-input placeholder="ডেট" [(ngModel)]="orderCreateModel.date" />
+            </div>
+            <div class="col-md-4">
               <label for="name" class="form-label">নাম *</label> <br>
               <nz-select nzShowSearch nzAllowClear nzPlaceHolder="কাস্টমার সিলেক্ট করুন" 
-                name="customerId" [(ngModel)]="orderCreateModel.customerId">
-                <nz-option nzLabel="{{customer.name}}" nzValue="{{customer.id}}" *ngFor="let customer of customers"></nz-option>
+                name="customerId" [(ngModel)]="orderCreateModel.customerId" (ngModelChange)="onChangeCustomerId($event)">
+                <nz-option [nzLabel]="customer.name" [nzValue]="customer.id" *ngFor="let customer of customers">
+                </nz-option>
               </nz-select>
             </div>
             <div class="col-md-4">
@@ -29,62 +34,80 @@
                     <th>প্রোডাক্ট</th>
                     <th>কোয়ান্টিটি</th>
                     <th>অপশন</th>
+                    <th>অ্যাকশান</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let orderDetail of orderCreateModel.orderDetailsCreateModels">
+                  <tr *ngFor="let orderDetail of orderCreateModel.orderDetailsCreateModels; 
+                    let i = index; trackBy: trackByIndex">
                     <td>
                       <nz-select nzShowSearch nzAllowClear nzPlaceHolder="টাইপ সিলেক্ট করুন" 
-                        name="productTypeId" [(ngModel)]="orderDetail.productTypeId">
-                        <nz-option nzLabel="{{productType.name}}" nzValue="{{productType.id}}" 
-                          *ngFor="let productType of productTypes">
+                        name="productTypeId-{{i}}" [(ngModel)]="orderDetail.productTypeId">
+                        <nz-option *ngFor="let productType of productTypes" 
+                          [nzLabel]="productType.name" [nzValue]="productType.id">
                         </nz-option>
                       </nz-select>
                     </td>
                     <td>
                       <nz-select nzShowSearch nzAllowClear nzPlaceHolder="প্রোডাক্ট সিলেক্ট করুন" 
-                        name="productId" [(ngModel)]="orderDetail.productId">
-                        <nz-option nzLabel="{{product.name}}" nzValue="{{product.id}}" 
-                          *ngFor="let product of products">
+                        name="productId-{{i}}" [(ngModel)]="orderDetail.productId">
+                        <nz-option *ngFor="let product of products" 
+                          [nzLabel]="product.name" [nzValue]="product.id">
                         </nz-option>
                       </nz-select>
                     </td>
                     <td>
                       <nz-select nzShowSearch nzAllowClear nzPlaceHolder="কোয়ান্টিটি সিলেক্ট করুন" 
-                        name="productQuantityId" [(ngModel)]="orderDetail.productQuantityId">
-                        <nz-option nzLabel="{{productQuantity.name}}" nzValue="{{productQuantity.id}}" 
-                          *ngFor="let productQuantity of productQuantities">
+                        name="productQuantityId-{{i}}" [(ngModel)]="orderDetail.productQuantityId">
+                        <nz-option *ngFor="let productQuantity of productQuantities"
+                          [nzLabel]="productQuantity.name" [nzValue]="productQuantity.id">
                         </nz-option>
                       </nz-select>
                     </td>
                     <td>
-                      <input name="optional" nz-input placeholder="নোট" [(ngModel)]="orderDetail.optional" />
+                      <input name="optional-{{i}}" nz-input placeholder="নোট" [(ngModel)]="orderDetail.optional" />
+                    </td>
+                    <td>
+                      <button nz-button nzType="primary" style="margin-left: 3px;" (click)="onDeleteOrderItem(i)">
+                        <i nz-icon nzType="delete" nzTheme="outline"></i>
+                        ডিলিট
+                      </button>
                     </td>
                   </tr>
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <th colSpan="5">
+                      <button nz-button nzType="primary" (click)="onClickAddOrderItem()">
+                        <i nz-icon nzType="plus" nzTheme="outline"></i>
+                        আইটেম যোগ করুন
+                      </button>
+                    </th>
+                  </tr>
+                </tfoot>
               </table>
             </div>
-            <div class="col-md-4">
-              <label for="vori" class="form-label">ভরি</label> <br>
-              <input name="vori" nz-input placeholder="ভরি" [(ngModel)]="orderCreateModel.vori" />
-            </div>
-            <div class="col-md-4">
-              <label for="ana" class="form-label">আনা</label> <br>
-              <input name="ana" nz-input placeholder="আনা" [(ngModel)]="orderCreateModel.ana" />
-            </div>
-            <div class="col-md-4">
-              <label for="roti" class="form-label">রতি</label> <br>
-              <input name="roti" nz-input placeholder="রতি" [(ngModel)]="orderCreateModel.roti" />
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
               <label for="productOptionId" class="form-label">অপশন</label> <br>
               <nz-select nzShowSearch nzAllowClear nzPlaceHolder="অপশন সিলেক্ট করুন" 
                 name="productOptionId" [(ngModel)]="orderCreateModel.productOptionId">
-                <nz-option nzLabel="{{productOption.name}}" nzValue="{{productOption.id}}" 
+                <nz-option [nzLabel]="productOption.name" [nzValue]="productOption.id" 
                   *ngFor="let productOption of productOptions">
                 </nz-option>
               </nz-select>
             </div>
+            <div class="col-md-2">
+              <label for="vori" class="form-label">ভরি</label> <br>
+              <input name="vori" nz-input placeholder="ভরি" [(ngModel)]="orderCreateModel.vori" />
+            </div>
+            <div class="col-md-2">
+              <label for="ana" class="form-label">আনা</label> <br>
+              <input name="ana" nz-input placeholder="আনা" [(ngModel)]="orderCreateModel.ana" />
+            </div>
+            <div class="col-md-2">
+              <label for="roti" class="form-label">রতি</label> <br>
+              <input name="roti" nz-input placeholder="রতি" [(ngModel)]="orderCreateModel.roti" />
+            </div>            
             <div class="col-md-4">
               <label for="amount" class="form-label">টাকা *</label> <br>
               <input name="amount" nz-input placeholder="টাকা" [(ngModel)]="orderCreateModel.amount" />
@@ -99,6 +122,50 @@
           <button nz-button nzType="primary" style="margin-left: 3px;" routerLink="/orders">
             <i nz-icon nzType="rollback" nzTheme="outline"></i>
             বাতিল করুণ
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm myDivToPrint" *ngIf="customerName != undefined">
+        <div class="card-body">
+          <span *ngIf="orderCreateModel.date">{{orderCreateModel.date}}</span><br>
+          <span class="fw-bold text-center">
+            {{ customerName }} 
+            <span *ngIf="orderCreateModel.orderNumber"> ({{ orderCreateModel.orderNumber }})</span>
+          </span><br>
+          <span *ngFor="let orderDetail of orderCreateModel.orderDetailsCreateModels; let i = index" class="text-start">
+            <span *ngIf="i === 0 
+              || orderDetail.productTypeId !== orderCreateModel.orderDetailsCreateModels[i - 1].productTypeId" 
+              class="fw-bold">
+              {{ getProdutTypeName(orderDetail.productTypeId) }} -
+            </span> 
+            <span>
+              {{ getProdutName(orderDetail.productId) }} {{ getProdutQuantityName(orderDetail.productQuantityId) }}
+              <span *ngIf="orderDetail.optional">({{orderDetail.optional}})</span>
+              <span *ngIf="i < orderCreateModel.orderDetailsCreateModels.length - 1 
+                && orderDetail.productTypeId === orderCreateModel.orderDetailsCreateModels[i + 1].productTypeId">
+                +
+              </span>
+            </span>
+            <br>
+          </span>
+          <span *ngIf="orderCreateModel.vori != undefined || orderCreateModel.ana || orderCreateModel.roti" class="text-start"> 
+            <span class="fw-bold">W - </span>
+            <span *ngIf="orderCreateModel.productOptionId">{{ getProdutOptionName(orderCreateModel.productOptionId) }} </span>
+            <span *ngIf="orderCreateModel.vori">{{orderCreateModel.vori}} ভরি </span>
+            <span *ngIf="orderCreateModel.ana">{{orderCreateModel.ana}} আনা </span>
+            <span *ngIf="orderCreateModel.roti">{{orderCreateModel.roti}} রতি </span>
+          </span><br>
+          <span *ngIf="orderCreateModel.amount != undefined" class="text-start"> 
+            <span  class="fw-bold">A - </span>
+            <span *ngIf="orderCreateModel.amount">{{orderCreateModel.amount}} টাকা</span>
+          </span>
+        </div>
+        <div class="card-footer">
+          <button nz-button nzType="primary" (click)="onClickPrint()">
+            <i nz-icon nzType="printer" nzTheme="outline"></i>
+            প্রিন্ট করুণ
           </button>
         </div>
       </div>

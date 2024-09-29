@@ -50,10 +50,24 @@ namespace SuruchiJewellersManagement.Api.AutoMapper
                 .ForMember(d => d.OrderDetailsCreateModels, s => s.MapFrom(m => m.OrderDetails));
             CreateMap<OrderCreateModel, Order>()
                 .ForMember(d => d.OrderDetails, s => s.MapFrom(m => m.OrderDetailsCreateModels));
+            CreateMap<Order, OrderViewModel>()
+                .ForMember(d => d.CustomerName, s => s.MapFrom(m => m.Customer.Name))
+                .ForMember(d => d.ProductOptionName, s => s.MapFrom(m => m.ProductOption.Name))
+                .ForMember(d => d.OrderDetailsViewModels, s => s.MapFrom(m => m.OrderDetails));
+            CreateMap<OrderUpdateModel, Order>()
+                .ForMember(d => d.OrderDetails, s => s.MapFrom(m => m.OrderDetailsUpdateModels));
+            CreateMap<Order, OrderUpdateModel>()
+                .ForMember(o => o.OrderDetailsUpdateModels, s => s.MapFrom(m => m.OrderDetails));
 
             // Order details
             CreateMap<OrderDetails, OrderCreateModel>();
             CreateMap<OrderDetailsCreateModel, OrderDetails>();
+            CreateMap<OrderDetails, OrderDetailsViewModel>()
+                .ForMember(d => d.ProductTypeName, s => s.MapFrom(m => m.ProductType.Name))
+                .ForMember(d => d.ProductName, s => s.MapFrom(m => m.Product.Name))
+                .ForMember(d => d.ProductQuantityName, s => s.MapFrom(m => m.ProductQuantity.Name));
+            CreateMap<OrderDetailsUpdateModel, OrderDetails>();
+            CreateMap<OrderDetails, OrderDetailsUpdateModel>();
         }
     }
 }

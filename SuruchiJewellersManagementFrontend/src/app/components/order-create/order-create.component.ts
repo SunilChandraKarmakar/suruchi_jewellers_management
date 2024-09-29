@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerViewMode } from 'src/app/models/customer/customer-view-model';
@@ -10,6 +10,7 @@ import { ProductTypeViewModel } from 'src/app/models/product-type/product-type-v
 import { ProductViewModel } from 'src/app/models/product/product-view-model';
 import { ResponseModel } from 'src/app/models/response-model';
 import { CustomerService } from 'src/app/services/customer.service';
+import { OrderService } from 'src/app/services/order.service';
 import { ProductQuantityService } from 'src/app/services/product-quantity.service';
 import { ProductTypeService } from 'src/app/services/product-type.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -43,17 +44,18 @@ export class OrderCreateComponent implements OnInit {
     { id: 2, name: "পাথরসহ" }
   ];
 
+  // Print property
+  customerName: string | undefined;
+  productTypeName: string | undefined;
+
+  @ViewChild('printSection', { static: false }) printSection!: ElementRef;
+
   constructor(private custmerService: CustomerService, private productTypeService: ProductTypeService,
     private toastrService: ToastrService, private spinerService: NgxSpinnerService, 
-    private productService: ProductService, private productQuantityService: ProductQuantityService) { }
+    private productService: ProductService, private productQuantityService: ProductQuantityService,
+    private orderService: OrderService) { }
 
   ngOnInit() {
-
-    // Set 1 order details by default
-    this.orderCreateModel.orderDetailsCreateModels = [
-      { productTypeId: 1, productId: 1, productQuantityId: 1, optional: undefined }
-    ]
-
     this.getCustomers();
     this.getProductTypes();
     this.getProducts();
@@ -112,8 +114,65 @@ export class OrderCreateComponent implements OnInit {
     })
   }
 
+  // Add order item
+  onClickAddOrderItem(): void {
+
+    // Create a empty order details create models object
+    let emptyOrderdetails: OrderDetailsCreateModel = new OrderDetailsCreateModel();
+    this.orderCreateModel.orderDetailsCreateModels.push(emptyOrderdetails);
+  }
+
+  trackByIndex(index: number, obj: any): any {
+    return index;
+  }
+
+  onDeleteOrderItem(index: number): void {
+    this.orderCreateModel.orderDetailsCreateModels.splice(index, 1);
+  }
+
   // Save order
   onClickOrderSave(): void {
+    this.spinerService.show();
 
+    this.orderService.createAsync(this.orderCreateModel).subscribe((result: ResponseModel) => {
+      this.spinerService.hide();
+      this.toastrService.success("অর্ডার তৈরি হয়েছে।", "সফল");
+      this.orderCreateModel = new OrderCreateModel();
+    },
+    (error: any) => {
+      this.spinerService.hide();
+      this.toastrService.error("অর্ডার তৈরি হয় নাই! আবার চেষ্টা করুণ।", "ত্রুটি");
+    })
+  }
+
+  // On change customer id
+  onChangeCustomerId(customerId: number): void {
+    this.customerName = this.customers.find(c => c.id == customerId)?.name;
+  }
+
+  // Get prduct type name
+  getProdutTypeName(productTypeId: number): string | undefined {
+    return this.productTypes.find(pt => pt.id == productTypeId)?.name ;
+  }
+
+  // Get product name
+  getProdutName(productId: number): string | undefined {
+    return this.products.find(p => p.id == productId)?.name;
+  }
+
+  // Get product quantity name
+  getProdutQuantityName(produtQuantityId: number): string | undefined {
+    return this.productQuantities.find(pq => pq.id == produtQuantityId)?.name;
+  }
+
+  // Get product option name
+  getProdutOptionName(productOptionId: number): string | undefined {
+    return this.productOptions.find(po => po.id == productOptionId)?.name;
+  }
+
+  // On click print
+  onClickPrint(): void {
+    // Invoke the print dialog
+    window.print();
   }
 }

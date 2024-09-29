@@ -155,6 +155,109 @@
     ]
   },
   {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.OrderController",
+    "Method": "DeleteAsync",
+    "RelativePath": "api/Order/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.OrderController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/Order/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.OrderController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/Order/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.OrderController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/Order/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "orderUpdateModel",
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Order.OrderUpdateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SuruchiJewellersManagement.Domain.ViewModels.Response.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ProductController",
     "Method": "CreateAsync",
     "RelativePath": "api/Product/Create",
