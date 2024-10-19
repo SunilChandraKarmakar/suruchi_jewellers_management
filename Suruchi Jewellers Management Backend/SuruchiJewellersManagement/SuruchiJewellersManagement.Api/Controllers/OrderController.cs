@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SuruchiJewellersManagement.Domain.Models;
-using SuruchiJewellersManagement.Domain.ViewModels.Customer;
 using SuruchiJewellersManagement.Domain.ViewModels.Order;
-using SuruchiJewellersManagement.Domain.ViewModels.Product;
 using SuruchiJewellersManagement.Domain.ViewModels.Response;
-using SuruchiJewellersManagement.Manager;
 using SuruchiJewellersManagement.Manager.Contracts;
 using System.Net;
 
@@ -40,26 +37,18 @@ namespace SuruchiJewellersManagement.Api.Controllers
         [ProducesResponseType(typeof(ResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ResponseModel>> CreateAsync(OrderCreateModel orderCreateModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    var mapOrderModel = _mapper.Map<Order>(orderCreateModel);
-                    var isCreateAsync = await _orderManager.CreateAsync(mapOrderModel);
+                var mapOrderModel = _mapper.Map<Order>(orderCreateModel);
+                var isCreateAsync = await _orderManager.CreateAsync(mapOrderModel);
 
-                    if (isCreateAsync)
-                        return Ok(new ResponseModel(201, "Order created", true));
-
-                    return BadRequest(new ResponseModel(400, "Order not created! Please, try again.", false));
-                }
+                if (isCreateAsync)
+                    return Ok(new ResponseModel(201, "Order created", true));
 
                 return BadRequest(new ResponseModel(400, "Order not created! Please, try again.", false));
             }
-            catch (Exception ex)
-            {
 
-                throw new Exception("Error :- ", ex);
-            }
+            return BadRequest(new ResponseModel(400, "Order not created! Please, try again.", false));
         }
 
         [HttpGet("{id}")]
@@ -79,26 +68,18 @@ namespace SuruchiJewellersManagement.Api.Controllers
         [ProducesResponseType(typeof(ResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ResponseModel>> UpdateAsync(int id, OrderUpdateModel orderUpdateModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    var mapOrderUpdateModel = _mapper.Map<Order>(orderUpdateModel);
-                    var isUpdateAsync = await _orderManager.UpdateAsync(mapOrderUpdateModel);
+                var mapOrderUpdateModel = _mapper.Map<Order>(orderUpdateModel);
+                var isUpdateAsync = await _orderManager.UpdateAsync(mapOrderUpdateModel);
 
-                    if (isUpdateAsync)
-                        return Ok(new ResponseModel(201, "Order updated", true));
-
-                    return BadRequest(new ResponseModel(400, "Order not updated! Please, try again.", false));
-                }
+                if (isUpdateAsync)
+                    return Ok(new ResponseModel(201, "Order updated", true));
 
                 return BadRequest(new ResponseModel(400, "Order not updated! Please, try again.", false));
             }
-            catch (Exception ex)
-            {
 
-                throw new Exception("Error :- ", ex); 
-            }
+            return BadRequest(new ResponseModel(400, "Order not updated! Please, try again.", false));
         }
 
         [HttpDelete("{id}")]

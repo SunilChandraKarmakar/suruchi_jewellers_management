@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuruchiJewellersManagement.Database")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e47de500923f4f870dca9a2e2dad1f3cf69f10bc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a511f8c689de6e267599aa41e913640a06846fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuruchiJewellersManagement.Database")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuruchiJewellersManagement.Database")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
