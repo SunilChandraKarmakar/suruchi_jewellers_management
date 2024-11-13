@@ -31,9 +31,10 @@ import { OrderCreateComponent } from './components/order-create/order-create.com
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { OrderUpdateComponent } from './components/order-update/order-update.component';
+import { PrintOrderComponent } from './components/print-order/print-order.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     CustomerListComponent,
     CustomerCreateComponent,
@@ -49,7 +50,8 @@ import { OrderUpdateComponent } from './components/order-update/order-update.com
     ProductUpdateComponent,
     OrderListComponent,
     OrderCreateComponent,
-    OrderUpdateComponent
+    OrderUpdateComponent,
+    PrintOrderComponent
   ],
 
   imports: [

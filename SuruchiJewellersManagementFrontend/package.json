@@ -22,7 +22,7 @@
     "@ant-design/icons-angular": "^11.0.0",
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
-    "ng-zorro-antd": "^14.3.0",
+    "ng-zorro-antd": "^15.1.1",
     "ngx-spinner": "^12.0.0",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~6.6.0",

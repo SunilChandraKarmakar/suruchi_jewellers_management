@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "HXU8zUdk9vMX9ssETcgv0JItYJxP/Tz7TYfRNGnsk10=",
+  "Hash": "RMdIlT349XsgwlZKdhsBZsy7U3Tpe/CWZ1aSbI6BoTc=",
   "Source": "SuruchiJewellersManagement.Api",
   "BasePath": "_content/SuruchiJewellersManagement.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SuruchiJewellersManagement.Api\\wwwroot",
+      "Source": "SuruchiJewellersManagement.Api",
+      "ContentRoot": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\wwwroot\\",
+      "BasePath": "_content/SuruchiJewellersManagement.Api",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

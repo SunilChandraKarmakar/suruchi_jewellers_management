@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class OrderCreateModel {\n  constructor() {\n    this.orderDetailsCreateModels = [];\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

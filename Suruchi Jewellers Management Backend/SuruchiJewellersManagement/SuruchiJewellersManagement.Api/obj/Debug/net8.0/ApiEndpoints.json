@@ -645,6 +645,22 @@
     ]
   },
   {
+    "ContainingType": "SuruchiJewellersManagement.Api.Controllers.ReportController",
+    "Method": "DownloadOrderReport",
+    "RelativePath": "api/Report/DownloadOrderReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SuruchiJewellersManagement.Api.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

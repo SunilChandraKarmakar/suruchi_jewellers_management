@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\wwwroot\\Reports\\InvoiceReport.rdlc",
+      "PackagePath": "staticwebassets\\Reports\\InvoiceReport.rdlc"
+    },
+    {
+      "Id": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\wwwroot\\Reports\\InvoiceReportDbSet.Designer.cs",
+      "PackagePath": "staticwebassets\\Reports\\InvoiceReportDbSet.Designer.cs"
+    },
+    {
+      "Id": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\wwwroot\\Reports\\InvoiceReportDbSet.cs",
+      "PackagePath": "staticwebassets\\Reports\\InvoiceReportDbSet.cs"
+    },
+    {
+      "Id": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\wwwroot\\Reports\\InvoiceReportDbSet.xsc",
+      "PackagePath": "staticwebassets\\Reports\\InvoiceReportDbSet.xsc"
+    },
+    {
+      "Id": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\wwwroot\\Reports\\InvoiceReportDbSet.xsd",
+      "PackagePath": "staticwebassets\\Reports\\InvoiceReportDbSet.xsd"
+    },
+    {
+      "Id": "D:\\suruchi_jewellers_management\\Suruchi Jewellers Management Backend\\SuruchiJewellersManagement\\SuruchiJewellersManagement.Api\\wwwroot\\Reports\\InvoiceReportDbSet.xss",
+      "PackagePath": "staticwebassets\\Reports\\InvoiceReportDbSet.xss"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SuruchiJewellersManagement.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SuruchiJewellersManagement.Api.props",
+      "PackagePath": "build\\SuruchiJewellersManagement.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SuruchiJewellersManagement.Api.props",
+      "PackagePath": "buildMultiTargeting\\SuruchiJewellersManagement.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SuruchiJewellersManagement.Api.props",
+      "PackagePath": "buildTransitive\\SuruchiJewellersManagement.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

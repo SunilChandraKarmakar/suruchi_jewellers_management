@@ -5,8 +5,8 @@
       <hr>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
       <div class="card shadow-sm">
         <div class="card-body">
           <form class="row g-3" autocomplete="off" autocapitalize="off">
@@ -123,49 +123,9 @@
             <i nz-icon nzType="rollback" nzTheme="outline"></i>
             বাতিল করুণ
           </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm myDivToPrint" *ngIf="customerName != undefined">
-        <div class="card-body">
-          <span *ngIf="orderCreateModel.date">{{orderCreateModel.date}}</span><br>
-          <span class="fw-bold text-center">
-            {{ customerName }} 
-            <span *ngIf="orderCreateModel.orderNumber"> ({{ orderCreateModel.orderNumber }})</span>
-          </span><br>
-          <span *ngFor="let orderDetail of orderCreateModel.orderDetailsCreateModels; let i = index" class="text-start">
-            <span *ngIf="i === 0 
-              || orderDetail.productTypeId !== orderCreateModel.orderDetailsCreateModels[i - 1].productTypeId" 
-              class="fw-bold">
-              {{ getProdutTypeName(orderDetail.productTypeId) }} -
-            </span> 
-            <span>
-              {{ getProdutName(orderDetail.productId) }} {{ getProdutQuantityName(orderDetail.productQuantityId) }}
-              <span *ngIf="orderDetail.optional">({{orderDetail.optional}})</span>
-              <span *ngIf="i < orderCreateModel.orderDetailsCreateModels.length - 1 
-                && orderDetail.productTypeId === orderCreateModel.orderDetailsCreateModels[i + 1].productTypeId">
-                +
-              </span>
-            </span>
-            <br>
-          </span>
-          <span *ngIf="orderCreateModel.vori != undefined || orderCreateModel.ana || orderCreateModel.roti" class="text-start"> 
-            <span class="fw-bold">W - </span>
-            <span *ngIf="orderCreateModel.productOptionId">{{ getProdutOptionName(orderCreateModel.productOptionId) }} </span>
-            <span *ngIf="orderCreateModel.vori">{{orderCreateModel.vori}} ভরি </span>
-            <span *ngIf="orderCreateModel.ana">{{orderCreateModel.ana}} আনা </span>
-            <span *ngIf="orderCreateModel.roti">{{orderCreateModel.roti}} রতি </span>
-          </span><br>
-          <span *ngIf="orderCreateModel.amount != undefined" class="text-start"> 
-            <span  class="fw-bold">A - </span>
-            <span *ngIf="orderCreateModel.amount">{{orderCreateModel.amount}} টাকা</span>
-          </span>
-        </div>
-        <div class="card-footer">
-          <button nz-button nzType="primary" (click)="onClickPrint()">
-            <i nz-icon nzType="printer" nzTheme="outline"></i>
-            প্রিন্ট করুণ
+          <button nz-button nzType="primary" style="margin-left: 3px;" (click)="onClickPrintOrder()">
+            <span nz-icon nzType="printer" nzTheme="outline"></span>
+            প্রিন্ট করুন
           </button>
         </div>
       </div>

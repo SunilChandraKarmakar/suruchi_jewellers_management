@@ -15,6 +15,7 @@ import { ProductUpdateComponent } from './components/product-update/product-upda
 import { OrderCreateComponent } from './components/order-create/order-create.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { OrderUpdateComponent } from './components/order-update/order-update.component';
+import { PrintOrderComponent } from './components/print-order/print-order.component';
 
 const routes: Routes = [
   // For not match url
@@ -43,7 +44,10 @@ const routes: Routes = [
   // For order
   { path: "orders", component: OrderListComponent, pathMatch: "full" },
   { path: "order-create", component: OrderCreateComponent, pathMatch: "full" },
-  { path: "order-update/:recordId", component: OrderUpdateComponent, pathMatch: "full" }
+  { path: "order-update/:recordId", component: OrderUpdateComponent, pathMatch: "full" },
+
+  // For order print
+  { path: "print-order", component: PrintOrderComponent, pathMatch: "full" }
 ];
 
 @NgModule({

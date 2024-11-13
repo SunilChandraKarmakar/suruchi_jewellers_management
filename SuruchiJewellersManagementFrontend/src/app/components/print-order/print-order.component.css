@@ -1,0 +1,20 @@
+.order-number {
+    background-color: whitesmoke;
+    border: 1px dotted darkblue;
+    text-align: center;
+    padding: 5px 0px;
+    span {
+        text-align: center;
+        padding: 5px 0px;
+    }
+}
+.date {
+    background-color: whitesmoke;
+    border: 1px dotted slategrey;
+    text-align: center;
+    padding: 5px 0px;
+    span {
+        text-align: center;
+        padding: 5px 0px;
+    }
+}

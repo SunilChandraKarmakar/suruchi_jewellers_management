@@ -1,8 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerViewMode } from 'src/app/models/customer/customer-view-model';
 import { OrderDetailsCreateModel } from 'src/app/models/order-details/order-details-create-model';
+import { OrderDetailsPrintModel } from 'src/app/models/order-print/order-details-print-model';
+import { OrderPrintModel } from 'src/app/models/order-print/order-print-model';
 import { OrderCreateModel } from 'src/app/models/order/order-create-model';
 import { ProductOptionViewModel } from 'src/app/models/product-option/product-option-view-model';
 import { ProductQuantityViewModel } from 'src/app/models/product-quantity/product-quantity-view-model';
@@ -14,6 +16,8 @@ import { OrderService } from 'src/app/services/order.service';
 import { ProductQuantityService } from 'src/app/services/product-quantity.service';
 import { ProductTypeService } from 'src/app/services/product-type.service';
 import { ProductService } from 'src/app/services/product.service';
+import { BanglaNumberToWordService } from 'src/app/shared/bangla-number-to-word.service';
+import { EnglishToBanglaNumberService } from 'src/app/shared/english-to-bangla-number.service';
 
 @Component({
   selector: 'app-order-create',
@@ -48,18 +52,21 @@ export class OrderCreateComponent implements OnInit {
   customerName: string | undefined;
   productTypeName: string | undefined;
 
-  @ViewChild('printSection', { static: false }) printSection!: ElementRef;
+  // Last created order number
+  private _lastCreateOrderSerialNumber: number = 0;
 
   constructor(private custmerService: CustomerService, private productTypeService: ProductTypeService,
     private toastrService: ToastrService, private spinerService: NgxSpinnerService, 
     private productService: ProductService, private productQuantityService: ProductQuantityService,
-    private orderService: OrderService) { }
+    private orderService: OrderService, private banglaNumberToWordService: BanglaNumberToWordService, 
+    private englishToBanglaNumberService: EnglishToBanglaNumberService) { }
 
   ngOnInit() {
     this.getCustomers();
     this.getProductTypes();
     this.getProducts();
     this.getProductQuantities();
+    this.getLastOrderSerialNumber();
   }
 
   // Get all customers
@@ -114,6 +121,19 @@ export class OrderCreateComponent implements OnInit {
     })
   }
 
+  // Get last order serial number
+  private getLastOrderSerialNumber(): void {
+    this.spinerService.show();
+    this.orderService.getAllAsync().subscribe((result: ResponseModel) => {
+      this._lastCreateOrderSerialNumber = result.response.length + 1;
+      this.spinerService.hide();
+    },
+    (error: any) => {
+      this.spinerService.hide();
+      this.toastrService.error("Order seril number cannot find! Please, try again.", "Error");
+    })
+  }
+
   // Add order item
   onClickAddOrderItem(): void {
 
@@ -132,17 +152,21 @@ export class OrderCreateComponent implements OnInit {
 
   // Save order
   onClickOrderSave(): void {
-    this.spinerService.show();
+    // Check order from validation
+    let isOrderFromValidated: boolean = this.orderFromValidation();
 
-    this.orderService.createAsync(this.orderCreateModel).subscribe((result: ResponseModel) => {
-      this.spinerService.hide();
-      this.toastrService.success("অর্ডার তৈরি হয়েছে।", "সফল");
-      this.orderCreateModel = new OrderCreateModel();
-    },
-    (error: any) => {
-      this.spinerService.hide();
-      this.toastrService.error("অর্ডার তৈরি হয় নাই! আবার চেষ্টা করুণ।", "ত্রুটি");
-    })
+    if(isOrderFromValidated) {
+      this.spinerService.show();
+      this.orderService.createAsync(this.orderCreateModel).subscribe((result: ResponseModel) => {
+        this.spinerService.hide();
+        this.toastrService.success("অর্ডার তৈরি হয়েছে।", "সফল");
+        this.orderCreateModel = new OrderCreateModel();
+      },
+      (error: any) => {
+        this.spinerService.hide();
+        this.toastrService.error("অর্ডার তৈরি হয় নাই! আবার চেষ্টা করুণ।", "ত্রুটি");
+      })
+    }
   }
 
   // On change customer id
@@ -170,9 +194,65 @@ export class OrderCreateComponent implements OnInit {
     return this.productOptions.find(po => po.id == productOptionId)?.name;
   }
 
-  // On click print
-  onClickPrint(): void {
-    // Invoke the print dialog
-    window.print();
+  onClickPrintOrder(): void {
+    // Prepired print model
+    let orderPrint: OrderPrintModel = new OrderPrintModel();
+    orderPrint.serialNumber = this.englishToBanglaNumberService.convertToBanglaNumber(this._lastCreateOrderSerialNumber);
+    orderPrint.date = this.orderCreateModel.date;
+    orderPrint.customerName = this.customerName!;
+    orderPrint.orderNumber = this.orderCreateModel.orderNumber!;
+    orderPrint.productOptionName = this.getProdutOptionName(this.orderCreateModel.productOptionId!)!;
+    orderPrint.vori = this.orderCreateModel.vori!;
+    orderPrint.ana = this.orderCreateModel.ana!;
+    orderPrint.roti = this.orderCreateModel.roti!;
+    orderPrint.amount = this.orderCreateModel.amount!;
+    orderPrint.amountInWord = this.banglaNumberToWordService.convertBanglaNumberToWord(this.orderCreateModel.amount!);
+    
+    this.orderCreateModel.orderDetailsCreateModels.forEach(orderDetailsModel => {
+      let orderDetailsPrintModel: OrderDetailsPrintModel = new OrderDetailsPrintModel();
+      orderDetailsPrintModel.productTypeId = orderDetailsModel.productTypeId;
+      orderDetailsPrintModel.productTypeName = this.getProdutTypeName(orderDetailsModel.productTypeId)!;
+      orderDetailsPrintModel.productName = this.getProdutName(orderDetailsModel.productId)!;
+      orderDetailsPrintModel.productQuantityName = this.getProdutQuantityName(orderDetailsModel.productQuantityId)!;
+      orderDetailsPrintModel.optional = orderDetailsModel.optional!;
+
+      orderPrint.orderDetailsPrintModel.push(orderDetailsPrintModel);
+    });
+
+    // Set print data for pass another component
+    const newWindow = window.open("print-order", '_blank')!;
+
+    newWindow.onload = () => {
+      newWindow.postMessage(orderPrint, '*');
+    }
+  }
+
+  // Order from validation
+  orderFromValidation(): boolean {
+    if(this.orderCreateModel.date == undefined || this.orderCreateModel.date == null || this.orderCreateModel.date == "") {
+      this.toastrService.warning("তারিখ দিন।", "সতর্কতা");
+      return false;
+    }
+    else if(this.orderCreateModel.customerId == undefined || this.orderCreateModel.customerId == null) {
+      this.toastrService.warning("কাস্টমারের নাম সিলেক্ট করুন।", "সতর্কতা");
+      return false;
+    }
+    else if(this.orderCreateModel.orderNumber == undefined || this.orderCreateModel.orderNumber == null 
+      || this.orderCreateModel.orderNumber == "") {
+      this.toastrService.warning("অর্ডার নাম্বার দিন।", "সতর্কতা");
+      return false;
+    }
+    else if(this.orderCreateModel.orderDetailsCreateModels == undefined 
+      || this.orderCreateModel.orderDetailsCreateModels == null || this.orderCreateModel.orderDetailsCreateModels.length <= 0) {
+      this.toastrService.warning("প্রোডাক্ট সিলেক্ট করুন।", "সতর্কতা");
+      return false;
+    }
+    else if(this.orderCreateModel.amount == undefined || this.orderCreateModel.amount == null || this.orderCreateModel.amount) {
+      this.toastrService.warning("টাকার পরিমান দিন।", "সতর্কতা");
+      return false;
+    }
+    else {
+      return true;
+    }
   }
 }

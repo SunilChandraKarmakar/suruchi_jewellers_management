@@ -1,0 +1,47 @@
+<div class="container mt-3" id="printableDiv">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="row justify-content-center">
+        <div class="col-md-4 order-number">
+          <span>{{ orderPrintModel.serialNumber }}</span>
+        </div>
+        <div class="col-md-8 date">
+          <span>{{ orderPrintModel.date }}</span>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center mt-3">
+        <div class="col-md-10">
+          <span>{{ orderPrintModel.customerName }} ({{ orderPrintModel.orderNumber }})</span>
+        </div>
+      </div>
+      <div class="row text-start mt-3">
+        <div class="col-md-12 product-list">
+          <table>
+            <thead></thead>
+            <tbody>
+              <tr *ngFor="let orderDetails of orderPrintModel.orderDetailsPrintModel">
+                <td>
+                  {{ orderDetails.productTypeName }} - {{ orderDetails.productName }} {{ orderDetails.productQuantityName }} <span *ngIf="orderDetails.optional != undefined || orderDetails.optional != null">
+                    ({{ orderDetails.optional }})
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row text-start">
+        <div class="col-md-12">
+          <span>W - 
+            <span *ngIf="orderPrintModel.productOptionName != undefined || orderPrintModel.productOptionName != null">
+              {{ orderPrintModel.productOptionName }}
+            </span> 
+            {{ orderPrintModel.vori }} ভরি {{ orderPrintModel.ana }} আনা {{ orderPrintModel.roti }} রত্তি মাত্র
+          </span><br>
+          <span>A - {{ orderPrintModel.amount }} টাকা</span><br><br>
+          <p> = {{ orderPrintModel.amountInWord }} টাকা মাত্র</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
