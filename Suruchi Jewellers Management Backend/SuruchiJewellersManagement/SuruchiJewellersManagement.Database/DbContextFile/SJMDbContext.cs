@@ -29,16 +29,26 @@ namespace SuruchiJewellersManagement.Database.DbContextFile
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // For local Sql Server
-            var connectionString = @"Server = DESKTOP-I6ENAU2\SQLEXPRESS; 
-                                        Database = SuruchiJewellersManagementDb; 
-                                        Trusted_Connection = True; 
-                                        MultipleActiveResultSets = True; 
-                                        TrustServerCertificate = True";
+            //var connectionString = @"Server = DESKTOP-I6ENAU2\SQLEXPRESS; 
+            //                            Database = SuruchiJewellersManagementDb; 
+            //                            Trusted_Connection = True; 
+            //                            MultipleActiveResultSets = True; 
+            //                            TrustServerCertificate = True";
 
             // For Sql Server
             //string connectionString = @"workstation id=SuruchiJewellersManagementDb.mssql.somee.com;packet size=4096;user id=sunilkarmakar_SQLLogin_1;pwd=wrjveenytu;data source=SuruchiJewellersManagementDb.mssql.somee.com;persist security info=False;initial catalog=SuruchiJewellersManagementDb;TrustServerCertificate=True";
 
-            optionsBuilder.UseSqlServer(connectionString);
+            if (!optionsBuilder.IsConfigured)
+            {
+                // For Postgry Sql
+                var connectionString = @"Host = 52.220.53.94; 
+                                     Database = SuruchiJewellersManagementDb; 
+                                     Port = 5432; 
+                                     Username = vonome_system; 
+                                     Password = ?A^NA2^xYmbMNqp#";
+
+                optionsBuilder.UseNpgsql(connectionString);
+            }
         }
     }
 }

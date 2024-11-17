@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RMdIlT349XsgwlZKdhsBZsy7U3Tpe/CWZ1aSbI6BoTc=",
+  "Hash": "zbeqVWvwWoadWcP9vya59F4gyQFuVm3omPmMVXopxag=",
   "Source": "SuruchiJewellersManagement.Api",
   "BasePath": "_content/SuruchiJewellersManagement.Api",
   "Mode": "Default",
@@ -15,5 +15,6 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

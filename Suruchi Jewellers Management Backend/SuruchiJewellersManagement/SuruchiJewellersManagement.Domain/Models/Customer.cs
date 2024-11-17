@@ -10,6 +10,7 @@ namespace SuruchiJewellersManagement.Domain.Models
             Orders = new HashSet<Order>();
         }
 
+        [Key, Required]
         public int Id { get; set; }
 
         [Column(TypeName = "nvarchar")]

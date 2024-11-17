@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add connection string
 builder.Services.AddDbContext<SJMDbContext>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddIdentity<User, IdentityRole>(option => { }).AddEntityFrameworkStores<SJMDbContext>();
 

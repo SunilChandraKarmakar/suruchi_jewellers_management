@@ -5,6 +5,7 @@ namespace SuruchiJewellersManagement.Domain.Models
 {
     public class OrderDetails
     {
+        [Key, Required]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Please, provied order.")]
