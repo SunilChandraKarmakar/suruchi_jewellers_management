@@ -11,7 +11,7 @@ namespace SuruchiJewellersManagement.Domain.Models
         }
 
         [Key, Required]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Column(TypeName = "nvarchar")]
         [Required(ErrorMessage = "Please, provied name.")]

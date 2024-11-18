@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -17,7 +16,7 @@ builder.Services.AddDbContext<SJMDbContext>(option =>
 {
     option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-builder.Services.AddIdentity<User, IdentityRole>(option => { }).AddEntityFrameworkStores<SJMDbContext>();
+// builder.Services.AddIdentity<User, IdentityRole>(option => { }).AddEntityFrameworkStores<SJMDbContext>();
 
 // Add JWT
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JWTConfig"));

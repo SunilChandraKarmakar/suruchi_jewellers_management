@@ -165,3 +165,4 @@ D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewe
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Api\obj\Debug\net8.0\SuruchiJewellersManagement.Api.pdb
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Api\obj\Debug\net8.0\SuruchiJewellersManagement.Api.genruntimeconfig.cache
 D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Api\obj\Debug\net8.0\ref\SuruchiJewellersManagement.Api.dll
+D:\suruchi_jewellers_management\Suruchi Jewellers Management Backend\SuruchiJewellersManagement\SuruchiJewellersManagement.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
